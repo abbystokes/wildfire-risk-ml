@@ -1,0 +1,129 @@
+Historical Chilean Fire Scars FireScar-CL Database
+
+Principal investigator: Alejandro Miranda
+Contact: Alejandro Miranda, mirandac.alejandro@gmail.cl
+
+Abstract:  This document describes all the provided products: seven files per fire (five raster and two vectorials) and the summary Excel file.
+All files are projected in EPSG: 4326. The raster layers are in GeoTIFF format (.tif) and have a cell resolution equivalent to 30m approximately. The vector 
+files (.shp and related) are in Shapefile format. Each file is named based on the product it represents (ImgPre, ImgPos, RdNBR, FireScar, Severity), followed by 
+the administrative region code based on ISO 3166-2:CL (CL-ML for example), together with the identification number of the fire (ID169170 for example), 
+the RdNBR threshold value (u330 for example) used to define the burned area and the ignition start date as reported by CONAF in YYYYMMDD format (20170923).
+
+An example of the file names of fire scar ID169170:
+1) ImgPreF_CL-ML_ID169170_u330_20170923.tif
+2) ImgPosF_CL-ML_ID169170_u330_20170923.tif
+3) RdNBR_CL-ML_ID169170_u330_20170923.tif
+4) FireScar_CL-ML_ID169170_u330_20170923.tif
+5) FireScar_CL-ML_ID169170_u330_20170923.shp
+6) Severity_CL-ML_ID169170_u330_20170923.tif
+7) Severity_CL-ML_ID169170_u330_20170923.shp
+
+Specifically the products are the following:
+
+1) "ImgPreF", raster product
+It is a composite image of the landscape previous to the fire, that corresponds to a mosaic made with a set of selected satellite images prior to the fire.
+These images are on a surface reflectance level and belong to the Landsat 5, 7 and 8 collections. 
+It has 8 bands, B: Blue, G: Green, R: Red, NIR, SWIR1, SWIR2, and the spectral indices NDVI and NBR. 
+
+2) "ImgPosF", raster product
+It is a composite image of the landscape after the fire, that  corresponds to a mosaic made with a set of selected satellite postfire images.
+These images are on a surface reflectance level and belong to the Landsat 5, 7 and 8 collections. 
+It has 8 bands, B: Blue, G: Green, R: Red, NIR, SWIR1, SWIR2, and the spectral indices NDVI and NBR. 
+
+3) "RdNBR", raster product
+RdNBR "Relative delta Normalized Burn Ratio" is the index used to identify the burned area and its severity. 
+It was obtained from (Miller and Thode, 2007) based on the difference between pre and post images and its lowest value is defined by the threshold value.
+
+4) "FireScar", raster product
+It is a binary raster of the fire scar where 1 = "Scar" and 0 = "No Scar".
+  
+5) "FireScar", vectorial product
+Corresponds to the vectorial version of the fire scar, and contains the polygons that define the shape.
+The attribute table has the following columns, where unless stated, are valid for all polygons: 
+
+FireID: identification number of the fire.
+Region: administrative region were the fire is located, defined by CONAF.
+Season: season to which the fire belongs depending on its ignition date. The season is defined from July of the previous year to June of the same year. For example, season 2016: July 2015 to June 2016.
+FireName: name of the fire assigned by CONAF.
+IgnDate: start date of the fire ignition according to CONAF record.
+CtrlDate: control date of the fire according to CONAF record.
+IgnLat: latitude in degrees of the ignition point, where the fire started according to CONAF record.
+IgnLon: longitude in degrees of the ignition point, where the fire started according to CONAF record.
+NDVIMean: mean value of the NDVI index (in -1 - 1 scale) of the post fire image in the polygon.
+PolygArea: polygon area in square meters.  
+NIRMin: minimum value of the near infrared (NIR) reflectance (in 0 - 1 scale) from the post image in the polygon.
+TotalArea: total area of the fire scar in square meters. 
+AreaUnchS: total scar area under "unchanged" severity category, in square meters.
+AreaLowS: total scar area under "low" severity category, in square meters.
+AreaModS: total scar area under "moderate" severity category, in square meters.
+AreaHighS: total scar area under "high" severity category, in square meters.
+AreaCONAF: total burned hectares recorded by CONAF. 
+OverlapIDs: indicates the fire scar identification numbers of the scars that overlaps with the present scar.
+
+Notice that the severity categories mentioned in this attributes table belong to the proposal by (Miller and Thode, 2007) for the RdNBR index.
+
+6) "Severity", raster product
+It is a raster that represents the severity distribution of the fire in the identified scar.   
+Each value represents a different severity class, where 0 = "unchanged", 1 = "low", 2 = "moderate" and 3 = "high".
+This classification range belong to the proposal by (Miller and Thode, 2007) for the RdNBR index.
+This raster has one band with integer values from 0 to 3.
+
+7) "Severity", vectorial product
+It is a shape of the severity classifications involved in the fire scar. The shapefile corresponds to the vectorial version of the severity raster, 
+and contains different a polygons that define the shape of each severity value.
+The attribute table has the following columns, where unless stated, are valid for all polygons: 
+
+FireID: identification number of the fire.
+Region: administrative region were the fire is located, defined by CONAF.
+Season: season to which the fire belongs depending on its ignition date. The season is defined from July of the previous year to June of the same year. For example, season 2016: July 2015 to June 2016.
+FireName: name of the fire assigned by CONAF.
+IgnDate: start date of the fire ignition according to CONAF record.
+CtrlDate: control date of the fire according to CONAF record.
+IgnLat [Â°]: latitude in degrees of the ignition point, where the fire started according to CONAF record.
+IgnLon [Â°]: longitude in degrees of the ignition point, where the fire started according to CONAF record.
+Severity: severity class to which the polygon belongs, were 0 = unchanged, 1 = low, 2 = moderate and 3 = high.
+TotalArea: total area of the fire scar in square meters.
+AreaUnchS: total scar area under "unchanged" severity category, in square meters.
+AreaLowS: total scar area under "low" severity category, in square meters.
+AreaModS: total scar area under "moderate" severity category, in square meters.
+AreaHighS: total scar area under "high" severity category, in square meters.
+AreaCONAF: total burned hectares recorded by CONAF. 
+
+
+The meaning of the column names in the provided excel is as follows:
+
+1) FireID: corresponds to the fire identification number.
+2) FireSeason: season to which the fire belongs depending on its ignition date. The season is defined from July of the previous year to June of the same year. For example, season 2016: July 2015 to June 2016.
+3) RegionCode: the administrative region code assigned by ISO 3166-2:CL. 
+4) Region_CONAF: administrative region were the fire is located, defined by CONAF.
+5) FireName_CONAF: name of the fire assigned by CONAF.
+6) Area_CONAF [ha]: total burned hectares recorded by CONAF.
+7) IgnitionDate_CONAF: start date of the fire ignition according to CONAF record. 
+8) ControlDate_CONAF: control date of the fire according to CONAF record. 
+9) Latitude [Â°]: latitude in degrees of the ignition point, where the fire started according to CONAF record.
+10) Longitude [Â°]: longitude in degrees of the ignition point, where the fire started according to CONAF record.
+11) FireScar: indicates whether it was possible to obtain a fire scar, 1 = was obtained, 0 = was not obtained. 
+12) FolderLocation: is the folder where the seven product files are located.
+13) FireScarImgName: is the name of the fire scar file in raster format.
+14) PreFireImgName: is the name of the pre fire image file.
+15) PostFireImgName: is the name of the post fire image file.
+16) RdNBRImgName: is the name of the RdNBR index file.
+17) SeverityImgName: is the name of the severity file in raster format.
+18) FireScarVectorName: is the name of the fire scar file in vectorial format.
+19) SeverityVectorName: is the name of the severity file in vectorial format.
+20) Threshold: corresponds to the RdNBR value used to define the fire scar.
+21) NorthBoundLatitude [Â°]: latitude in degrees, of the northern boundary of the fire scar extent.
+22) SouthBoundLatitude [Â°]: latitude in degrees, of the southern boundary of the fire scar extent.
+23) WestBoundLongitude [Â°]: longitude in degrees, of the western boundary of the fire scar extent.
+24) EastBoundLongitude [Â°]: longitude in degrees, of the eastern boundary of the fire scar extent.
+25) Width [pixels]: number of pixels in the x-axis of the fire scar, severity and RdNBR raster files.
+26) Height [pixels]: number of pixels in the y-axis of the fire scar, severity and RdNBR raster files.
+27) TotalArea [m2]: total area of the fire scar in square meters.
+28) AreaUnchS [m2]: total scar area under "unchanged" severity category, in square meters.
+29) AreaLowS [m2]: total scar area under "low" severity category, in square meters.
+30) AreaModS [m2]: total scar area under "moderate" severity category, in square meters.
+31) AreaHighS [m2]: total scar area under "high" severity category, in square meters.
+32) FireScarPolygons: number of polygons that are part of the fire scar vectorial file.
+33) SeverityPolygons: number of polygons that are part of the severity vectorial file.
+34) OverlapIDs: indicates the fire scar identification numbers of the scars that overlaps with the present scar.
+35) Observations: specific observations made in some cases.

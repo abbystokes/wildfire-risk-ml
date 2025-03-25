@@ -1,0 +1,101 @@
+Dataset Summary
+None
+
+Summary Statistics:
+         FireSeason  Area_CONAF [ha]             IgnitionDate_CONAF              ControlDate_CONAF  Latitude [°]  Longitude [°]      FireScar    Threshold  NorthBoundLatitude [°]  SouthBoundLatitude [°]  WestBoundLongitude [°]  EastBoundLongitude [°]  Width [pixels]  Height [pixels]  TotalArea [m2]  AreaUnchS [m2]  AreaLowS [m2]  AreaModS [m2]  AreaHighS [m2]  FireScarPolygons  SeverityPolygons  FireDuration
+count  12250.000000     12250.000000                          12250                          12250  12250.000000   12250.000000  12250.000000  8153.000000             8153.000000             8153.000000             8153.000000             8153.000000     8153.000000      8153.000000    8.153000e+03          8153.0   8.153000e+03   8.153000e+03    8.153000e+03       8153.000000       8153.000000  12250.000000
+mean    2002.889878       162.016658  2002-12-22 20:15:14.546938752  2002-12-23 20:44:44.865306112    -36.160550     -72.021913      0.665551   433.179566              -35.766741              -35.783576              -71.909786              -71.891267       68.718876        62.469766    3.053903e+06             0.0   2.389187e+04   8.062175e+05    2.223797e+06          5.899546        216.848645      1.020490
+min     1985.000000        10.000000            1984-11-05 00:00:00            1984-11-05 00:00:00    -43.843300     -74.232600      0.000000    75.000000              -43.833025              -43.880995              -74.119635              -73.997823        3.000000         2.000000    4.345003e+03             0.0   0.000000e+00   0.000000e+00    0.000000e+00          1.000000          1.000000   -366.000000
+25%     1994.000000        15.000000            1993-12-31 06:00:00            1994-01-01 06:00:00    -38.005300     -72.592200      0.000000   350.000000              -37.786644              -37.805778              -72.485689              -72.462243       26.000000        22.000000    1.631970e+05             0.0   0.000000e+00   3.468296e+04    9.348120e+04          1.000000         18.000000      0.000000
+50%     2004.000000        26.000000            2003-12-15 00:00:00            2003-12-15 00:00:00    -36.548950     -72.052800      1.000000   400.000000              -35.463331              -35.479501              -71.754281              -71.734877       43.000000        37.000000    3.977722e+05             0.0   0.000000e+00   9.522537e+04    2.602239e+05          2.000000         41.000000      0.000000
+75%     2013.000000        70.000000            2012-12-15 18:00:00            2012-12-16 18:00:00    -33.962850     -71.382900      1.000000   500.000000              -33.631307              -33.646399              -71.326862              -71.305572       76.000000        67.000000    1.170953e+06             0.0   0.000000e+00   2.929125e+05    8.210708e+05          3.000000        102.000000      1.000000
+max     2018.000000    159813.000000            2018-06-09 00:00:00            2018-06-09 00:00:00    -29.511200     -70.222200      1.000000  1782.000000              -29.857036              -29.858922              -70.223552              -70.217892     2229.000000      2433.000000    1.353321e+09             0.0   3.761882e+07   3.236190e+08    1.031391e+09       5286.000000      87752.000000     75.000000
+std       10.358023      1698.260123                            NaN                            NaN      2.410442       0.785569      0.471817   140.794813                2.371484                2.372316                0.782938                0.782595      101.786266       102.178169    3.117599e+07             0.0   5.755228e+05   8.000398e+06    2.332097e+07         97.444902       1985.821834      4.600506
+
+Missing Values:
+FireID                        0
+FireSeason                    0
+RegionCode                    0
+Region_CONAF                  0
+FireName_CONAF                0
+Area_CONAF [ha]               0
+IgnitionDate_CONAF            0
+ControlDate_CONAF             0
+Latitude [°]                  0
+Longitude [°]                 0
+FireScar                      0
+FolderLocation             4097
+FireScarImgName            4097
+PreFireImgName             4097
+PostFireImgName            4097
+RdNBRImgName               4097
+SeverityImgName            4097
+FireScarVectorName         4097
+SeverityVectorName         4097
+Threshold                  4097
+NorthBoundLatitude [°]     4097
+SouthBoundLatitude [°]     4097
+WestBoundLongitude [°]     4097
+EastBoundLongitude [°]     4097
+Width [pixels]             4097
+Height [pixels]            4097
+TotalArea [m2]             4097
+AreaUnchS [m2]             4097
+AreaLowS [m2]              4097
+AreaModS [m2]              4097
+AreaHighS [m2]             4097
+FireScarPolygons           4097
+SeverityPolygons           4097
+OverlapIDs                10064
+Observations              11589
+FireDuration                  0
+
+Unique Values per Column:
+FireID                    12250
+FireSeason                   34
+RegionCode                    9
+Region_CONAF                  9
+FireName_CONAF             6915
+Area_CONAF [ha]            1192
+IgnitionDate_CONAF         4059
+ControlDate_CONAF          4224
+Latitude [°]              10176
+Longitude [°]              9049
+FireScar                      2
+FolderLocation              244
+FireScarImgName            8153
+PreFireImgName             8153
+PostFireImgName            8153
+RdNBRImgName               8153
+SeverityImgName            8153
+FireScarVectorName         8153
+SeverityVectorName         8153
+Threshold                   371
+NorthBoundLatitude [°]     6289
+SouthBoundLatitude [°]     7400
+WestBoundLongitude [°]     4521
+EastBoundLongitude [°]     7141
+Width [pixels]              397
+Height [pixels]             391
+TotalArea [m2]             7932
+AreaUnchS [m2]                1
+AreaLowS [m2]              1134
+AreaModS [m2]              7228
+AreaHighS [m2]             7733
+FireScarPolygons             83
+SeverityPolygons            805
+OverlapIDs                 2141
+Observations                  9
+FireDuration                 55
+
+Fire Incidents per Region:
+Region_CONAF
+BioBio           3248
+Araucania        2369
+Valparaiso       1784
+Maule            1419
+Ohiggins         1221
+Metropolitana    1109
+Los Lagos         523
+Los Rios          339
+Coquimbo          238
