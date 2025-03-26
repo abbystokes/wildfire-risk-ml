@@ -11,6 +11,8 @@ fire_viewer.ipynb   ---   Widget to visualize fire burn scar data for Maule. Vis
 
 File_Description.txt   ---   A text file which was downloaded from the PANGEA site which described the columns and files contained in the fire scar database.
 
+dataset_summary.txt   ---   A text file with summary information / statistics of the FireScar_CL_Summary_1985-2018.xlsx file.
+
 classification_example.ipynb   ---   A notebook which contains an example of supervised learning classification of land cover using GEE functionalities.
 
 Fire Scar Data acquired from PANGEA Historical Chilean Fire Scars FireScar-CL Database
