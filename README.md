@@ -21,7 +21,6 @@ image_processing.ipynb   ---   Notebook containing the code to perform  cropping
 
 merged_scars.ipynb   ---   Notebook which 1) creates a merged raster file with all scars for a given season (year) and 2) creates a merged raster file for each season with the 'fire scar history' (number of previous fires in past 10 years at each pixel point). Treats multiple fires in same location in given year as one fire event as fire scar is the same. For years where 10 previous years' scars are not available, used as much previous data as possible.
 
-classification_example.ipynb   ---   A notebook which contains an example of supervised learning classification of land cover using GEE functionalities.
 
 
 
