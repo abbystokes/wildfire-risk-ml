@@ -4,6 +4,10 @@ Wildfire Prediction using Geospatial Machine Learning Methods in South Central C
 contact: abigail.stokes@fulbrightmail.org
 
 
+Abstract:
+Drought-driven forest fires pose significant threats to ecosystems and communities in Chile. Accurate and timely prediction of these events is crucial for effective mitigation and disaster preparedness. This research proposal aims to develop a novel bottom-up methodology utilizing machine learning methods for predicting forest fire spread in the Region of Maule, Chile using historical fire scar and ignition point data. Variables for prediction include historical climate, topography, antropic, and vegatation satelite imagery. By integrating multiple sources of remote sensing information, this project seeks to enhance prediction accuracy and enable proactive response strategies by providing real time prediction of fire spread extent.
+
+
 Files in this repository and their contents:
 
 
