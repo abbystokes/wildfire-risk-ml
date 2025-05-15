@@ -13,12 +13,11 @@ Files in this repository and their contents:
 
 ---- NOTEBOOKS / PYTHON FILES ----
 
-
 data_exploration.ipynb   ---    Notebook which does some initial data exploration primarily using the FireScar_CL_Summary_1985-2018.xlsx file. Looks general information such as number of fires per year, month, and region, spatial distribution of fires by year for the region of Maule, and some initial geospatial statistical tests such as Ripley's K and KDE plots / correlation maps.
 
 fire_viewer.ipynb   ---   Widget to visualize fire burn scar data for Maule. Visualizes burn scar vector, NBR, and severity map, as well as pre- and post-fire images with burn scar boundary overlay
 
-data_preprocessing.ipynb   ---   Notebook containing to visualize and plan for data pre-processing task carried out in image_processing.ipynb cropping and padding of images, and save as tif files for machine learning (mask.tif and merged.tif)
+data_preprocessing_prep.ipynb   ---   Notebook containing to visualize and plan for data pre-processing task carried out in image_processing.ipynb cropping and padding of images, and save as tif files for machine learning (mask.tif and merged.tif)
 
 fire_scar_prediction.ipynb   ---   Notebook which creates a simple UNet model to predict fire scar base on post-fire image. Proto-type to see that code runs
 
@@ -27,7 +26,6 @@ pre_process_final.py   ---   Python script containing the code to perform  cropp
 data_preprocessing.ipynb   ---   Notebook with steps to perform vaildation checks on pre-processing code and to ensure proper alignment of layers with fire scar raster.
 
 merged_scars.ipynb   ---   Notebook which 1) creates a merged raster file with all scars for a given season (year) and 2) creates a merged raster file for each season with the 'fire scar history' (number of previous fires in past 10 years at each pixel point). Treats multiple fires in same location in given year as one fire event as fire scar is the same. For years where 10 previous years' scars are not available, used as much previous data as possible.
-
 
 
 
