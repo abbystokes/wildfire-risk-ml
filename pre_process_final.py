@@ -46,9 +46,12 @@ for fire_id, example_fire in df.iterrows():
         scar_folder = f"capas/incendio/FireScars"
         severity_folder = f"capas/incendio/Severity"
 
+
         pre_fire_path = os.path.join(folder, example_fire["PreFireImgName"])
         post_fire_path = os.path.join(folder, example_fire["PostFireImgName"])
         severity_path = os.path.join(severity_folder, example_fire["SeverityImgName"])
+        fire_scar_path = os.path.join(scar_folder, example_fire["FireScarImgName"])
+
 
         # Establish window from post-fire image
         dim_dest = 512
@@ -81,6 +84,7 @@ for fire_id, example_fire in df.iterrows():
 
         # Cropped variables
         severity_crop = crop(severity_path)
+        scar_crop = crop(fire_scar_path)
         ign_crop = crop(f"capas/incendio/ignition_probability_maps/ignition_prob_{fire_season}.tif", Resampling.bilinear)
         dist_water_crop = crop("capas/topografia/distance_to_water_ML.tif", Resampling.bilinear)
         hl_crop = crop("capas/topografia/heat_load_ML.tif", Resampling.bilinear)
@@ -130,11 +134,21 @@ for fire_id, example_fire in df.iterrows():
         print(f"Saved multiband raster to {out_merged}")
 
         # Save mask
+
+        # For severity raster
+       # with rasterio.open(
+       #     out_mask, 'w', driver='GTiff', height=dim_dest, width=dim_dest,
+       #     count=1, dtype=severity_crop.dtype, crs=crs_target, transform=window_transform
+       # ) as dst:
+       #     dst.write(severity_crop, 1)
+       # print(f"Saved mask raster to {out_mask}")
+
+        # For binary scar mask
         with rasterio.open(
             out_mask, 'w', driver='GTiff', height=dim_dest, width=dim_dest,
-            count=1, dtype=severity_crop.dtype, crs=crs_target, transform=window_transform
+            count=1, dtype=scar_crop.dtype, crs=crs_target, transform=window_transform
         ) as dst:
-            dst.write(severity_crop, 1)
+            dst.write(scar_crop, 1)
         print(f"Saved mask raster to {out_mask}")
 
     except Exception as e:
