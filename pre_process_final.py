@@ -21,7 +21,7 @@ from tqdm import tqdm
 import os
 
 # Read in the data
-df = pd.read_excel("FireScar_CL_Summary_1985-2018.xlsx") #excel meta-data file with file names and locations
+df = pd.read_excel("FireScar_CL_Summary_1985-2024.xlsx") #excel meta-data file with file names and locations
 df = df[df['FireScar'] == 1]  # Filter to just files that have fire scar available
 df = df[df['Region_CONAF'] == 'Maule'] # Filter to just Maule
 df = df.reset_index()
@@ -95,9 +95,10 @@ for fire_id, example_fire in df.iterrows():
         ndvi_crop = crop(f"capas/vegetacion/ndvi/MA_NDVI_{fire_season-1}.tif", Resampling.bilinear)
         fh_crop = crop(f"capas/incendio/fire_history_rasters_30yr/Maule_FireFreq_{fire_season}.tif", Resampling.bilinear)
         tslf_crop = crop(f"capas/incendio/time_since_last_fire/time_since_last_fire_{fire_season}.tif")
-        temp_anom_crop = crop(f"capas/clima/WorldClim_Maule/max_temp_anomaly/anomaly_wc2.1_2.5m_tmax_{fire_season}-{prev_month}.tif", Resampling.bilinear)
+        max_temp_crop = crop(f"capas/clima/WorldClim_Maule/max_temp_anomaly/anomaly_wc2.1_2.5m_tmax_{fire_season}-{prev_month}.tif", Resampling.bilinear)
         min_temp_crop = crop(f"capas/clima/WorldClim_Maule/min_temp_anomaly/anomaly_wc2.1_2.5m_tmin_{fire_season}-{prev_month}.tif", Resampling.bilinear)
         precip_anom_crop = crop(f"capas/clima/WorldClim_Maule/precipitation_anomaly/anomaly_wc2.1_2.5m_prec_{fire_season}-{prev_month}.tif", Resampling.bilinear)
+        accum_precip_crop = crop(f"capas/clima/WorldClim_Maule/accumulated_annual_precipitation/accumulated_prec_{fire_season}-{prev_month}.tif", Resampling.bilinear)
         sr_crop = crop(f"capas/clima/WorldClim_Maule/solar_radiation/wc2.1_30s_srad_{fire_month}.tif", Resampling.bilinear)
         wvp_crop = crop(f"capas/clima/WorldClim_Maule/water_vapor_pressure/wc2.1_30s_vapr_{fire_month}.tif", Resampling.bilinear)
         ws_crop = crop(f"capas/clima/WorldClim_Maule/wind_speed/wc2.1_30s_wind_{fire_month}.tif", Resampling.bilinear)
@@ -107,14 +108,14 @@ for fire_id, example_fire in df.iterrows():
 
         stacked_array = np.stack([
             ign_crop, dist_water_crop, hl_crop, tc_crop, slope_crop, elev_crop, aspect_crop,
-            ndvi_crop, fh_crop, tslf_crop, temp_anom_crop, min_temp_crop, precip_anom_crop,
-            sr_crop, wvp_crop, ws_crop, dist_road_crop, dist_pop_crop, pop_dens_crop
+            ndvi_crop, fh_crop, tslf_crop, max_temp_crop, min_temp_crop, precip_anom_crop,
+            accum_precip_crop, sr_crop, wvp_crop, ws_crop, dist_road_crop, dist_pop_crop, pop_dens_crop
         ])
 
         band_names = [
             'Ignition Point', 'Distance to Water', 'Heat Load', 'Topographic Complexity', 'Slope',
-            'Elevation', 'Aspect', 'NDVI', 'Fire History', 'Time Since Last Fire', 'Temperature Anomaly',
-            'Minimum Temperature Anomaly', 'Precipitation Anomaly', 'Solar Radiation',
+            'Elevation', 'Aspect', 'NDVI', 'Fire History', 'Time Since Last Fire', 'Max Temperature Anomaly',
+            'Minimum Temperature Anomaly', 'Precipitation Anomaly', 'Accumulated Annual Precipitation', 'Solar Radiation',
             'Water Vapor Pressure', 'Wind Speed', 'Distance to Road', 'Distance to Population', 'Population Density'
         ]
 
